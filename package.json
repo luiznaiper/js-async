@@ -1,0 +1,22 @@
+{
+  "name": "08-js-async",
+  "version": "1.0.0",
+  "description": "Consuming Rick and Morty API",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luiznaiper/js-async.git"
+  },
+  "author": "@luiznaiper",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luiznaiper/js-async/issues"
+  },
+  "homepage": "https://github.com/luiznaiper/js-async#readme",
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
+}
