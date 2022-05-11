@@ -1,23 +1,24 @@
-const sum = (num1, num2) => {
-    return num1 + num2
-}
+//const axios = require('axios')
 
-const calc = (num1, num2, callback) => {
-    return callback(num1, num2)
-}
+const API_URL = 'https://rickandmortyapi.com/api/character/'
 
-console.log(calc(2,2, sum))
+let res = axios.get(API_URL)
+  .then(function (response) {
+    // handle success
+    console.log(response);
+    let data1 = response.data.results[0].name
+    let data2 = response.data.info.count
+    let data3 = response.data.results[0].origin.url
+    console.log(data1)
+    console.log(data2)
+    console.log(data3)
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .then(function () {
+    // always executed
+    console.log('finally')
+  });
 
-const date = (callback) => {
-    console.log(new Date)
-    setTimeout(() => {
-        const date2 = new Date
-        callback(date2)
-    }, 2000)
-}
-
-const printDate = (dateNow) =>{
-    console.log(dateNow)
-}
-
-date(printDate)
