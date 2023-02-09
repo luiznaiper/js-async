@@ -1,17 +1,17 @@
-//const axios = require('axios')
+// const axios = require('axios')
 
 const API_URL = 'https://rickandmortyapi.com/api/character/'
 
-let res = axios.get(API_URL)
+axios.get(API_URL)
   .then(function (response) {
     // handle success
-    console.log(response);
-    let data1 = response.data.results[0].name
-    let data2 = response.data.info.count
-    let data3 = response.data.results[0].origin.url
-    console.log(data1)
-    console.log(data2)
-    console.log(data3)
+    console.log(response.data.info.count)
+    return axios.get(`${API_URL}${response.data.results[0].id}`)
+  }).then((response) => {
+    console.log(response.data.name)
+    return axios.get(response.data.origin.url)
+  }) .then( (response)=> {
+    console.log(response.data.dimension)
   })
   .catch(function (error) {
     // handle error
@@ -19,6 +19,6 @@ let res = axios.get(API_URL)
   })
   .then(function () {
     // always executed
-    console.log('finally')
+    //console.log('finally')
   });
 
